@@ -16,14 +16,11 @@
               <div class="col-lg-5 col-xxl-4">
                 <swiper ref="mySwiper" class="pb-5 slider-file" :options="swiperOption">
                   <swiper-slide v-for="item in items" :key="item.is">
-                    <label class="d-block pointer widget__package" for="package-1">
-                      <input class="d-none" type="radio" id="package-1" name="package" />
-                      <div class="widget__item-file text-center border rounded-10 py-3">
-                        <div class="widget__item-image mb-3"><img src="assets/images/file.png" alt="" /></div>
-                        <h5 class="widget__item-title mb-1">Document</h5>
-                        <h6 class="widget__item-size text-gray font-medium">0 to .5 m3</h6>
-                      </div>
-                    </label>
+                    <div class="widget__item-file text-center">
+                      <div class="widget__item-image mb-3"><img :src="item.img" alt=""></div>
+                      <h4 class="widget__item-title mb-1">{{item.title}}</h4>
+                      <h4 class="widget__item-size text-gray">{{item.size}}</h4>
+                    </div>
                   </swiper-slide>
                   <div class="swiper-button-prev" slot="button-prev">
                     <i class="fas fa-chevron-left"></i>

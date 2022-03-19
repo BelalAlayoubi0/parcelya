@@ -6,12 +6,12 @@
           <div class="logo">
             <router-link to="/"><img src="@/assets/images/logo.png" alt="" /></router-link>
           </div>
-          <div class="menu--mobile mx-lg-auto">
+          <div class="menu--mobile mx-lg-auto" :class="{'menu-mobile-active': isActive}">
             <div class="menu-container d-flex align-items-center justify-content-between d-lg-none px-3 border-bottom py-2 mb-3">
               <div class="logo">
                 <router-link to="/"><img src="@/assets/images/logo.png" alt="" /></router-link>
               </div>
-              <div class="btn-close-header-mobile justify-content-end">
+              <div class="btn-close-header-mobile justify-content-end" @click="toogleMenu">
                 <i class="fa-solid fa-xmark fa-xl"></i>
               </div>
             </div>
@@ -43,7 +43,7 @@
               </ul>
             </div>
           </div>
-          <div class="header-mobile__toolbar ms-auto d-lg-none fa-lg">
+          <div class="header-mobile__toolbar ms-auto d-lg-none fa-lg" @click="toogleMenu">
             <i class="fa-solid fa-bars"></i>
           </div>
         </div>
@@ -158,7 +158,8 @@
                 <h6 class="text-gray">Agree to Term of use and Privacy policy</h6>
               </div>
               <div class="form-group">
-                <button class="btn btn-primary w-100">Create account</button>
+                <!-- <button class="btn btn-primary w-100">Create account</button> -->
+                <router-link to="/account" class="btn btn-primary w-100">Create account</router-link>
               </div>
             </form>
           </div>
@@ -174,6 +175,7 @@
 export default {
   data () {
     return {
+      isActive: false,
       fieldType: 'password',
       fieldType_2: 'password',
       options: [
@@ -198,6 +200,9 @@ export default {
     },
     obfuscateToggle_2 () {
       this.fieldType_2 = this.fieldType_2 === 'password' ? 'text' : 'password'
+    },
+    toogleMenu () {
+      this.isActive = !this.isActive
     }
   }
 }

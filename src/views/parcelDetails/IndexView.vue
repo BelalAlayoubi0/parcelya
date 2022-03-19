@@ -242,20 +242,12 @@
                   </div>
                 </div>
                 <hr>
-                <div class="content-loaction-map">
+                <div class="content-loaction-map" v-if="showLocationManually">
                   <div class="row">
                     <div class="col-12 mb-4">
                       <h5 class="mb-2 font-semi-bold">Locations</h5>
-                      <button class="bg-white text-blue button--trigger-location-manually" type="button">
-                        <svg class="me-2" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M1.66663 8.33333C1.66663 3.75 5.41663 0 9.99996 0C14.5833 0 18.3333 3.75 18.3333 8.33333C18.3333 14.5 10.75 19.6667 10.5 19.8333C10.3333 19.9167 10.1666 20 9.99996 20C9.83329 20 9.66663 19.9167 9.49996 19.8333C9.24996 19.6667 1.66663 14.5 1.66663 8.33333ZM3.33329 8.33333C3.33329 12.8333 8.41663 17 9.99996 18.1667C11.5833 17 16.6666 12.8333 16.6666 8.33333C16.6666 4.66667 13.6666 1.66667 9.99996 1.66667C6.33329 1.66667 3.33329 4.66667 3.33329 8.33333ZM9.99996 5C8.16663 5 6.66663 6.5 6.66663 8.33333C6.66663 10.1667 8.16663 11.6667 9.99996 11.6667C11.8333 11.6667 13.3333 10.1667 13.3333 8.33333C13.3333 6.5 11.8333 5 9.99996 5ZM8.33329 8.33333C8.33329 9.25 9.08329 10 9.99996 10C10.9166 10 11.6666 9.25 11.6666 8.33333C11.6666 7.41667 10.9166 6.66667 9.99996 6.66667C9.08329 6.66667 8.33329 7.41667 8.33329 8.33333Z" fill="#35498E"></path>
-                          <mask id="mask0_23_415" style="mask-type: alpha;" maskUnits="userSpaceOnUse" x="1" y="0" width="18" height="20">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.66663 8.33333C1.66663 3.75 5.41663 0 9.99996 0C14.5833 0 18.3333 3.75 18.3333 8.33333C18.3333 14.5 10.75 19.6667 10.5 19.8333C10.3333 19.9167 10.1666 20 9.99996 20C9.83329 20 9.66663 19.9167 9.49996 19.8333C9.24996 19.6667 1.66663 14.5 1.66663 8.33333ZM3.33329 8.33333C3.33329 12.8333 8.41663 17 9.99996 18.1667C11.5833 17 16.6666 12.8333 16.6666 8.33333C16.6666 4.66667 13.6666 1.66667 9.99996 1.66667C6.33329 1.66667 3.33329 4.66667 3.33329 8.33333ZM9.99996 5C8.16663 5 6.66663 6.5 6.66663 8.33333C6.66663 10.1667 8.16663 11.6667 9.99996 11.6667C11.8333 11.6667 13.3333 10.1667 13.3333 8.33333C13.3333 6.5 11.8333 5 9.99996 5ZM8.33329 8.33333C8.33329 9.25 9.08329 10 9.99996 10C10.9166 10 11.6666 9.25 11.6666 8.33333C11.6666 7.41667 10.9166 6.66667 9.99996 6.66667C9.08329 6.66667 8.33329 7.41667 8.33329 8.33333Z" fill="white"></path>
-                          </mask>
-                          <g mask="url(#mask0_23_415)">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H20V20H0V0Z" fill="#35498E"></path>
-                          </g>
-                        </svg>
+                      <button class="bg-white text-blue button--trigger-location-manually" type="button" @click="locationManually">
+                        <i class="fa-light fa-location-dot me-2"></i>
                         Enter location manually
                       </button>
                     </div>
@@ -264,20 +256,12 @@
                     </div>
                   </div>
                 </div>
-                <div class="content-loaction-manually">
+                <div class="content-loaction-manually" v-if="showLocationMap">
                   <div class="row">
                     <div class="col-12 mb-4">
                       <h5 class="mb-2 font-semi-bold">Locations</h5>
-                      <button class="bg-white text-blue button--trigger-location-map" type="button">
-                        <svg class="me-2" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M18.75 0.95793C19 0.792018 19.3333 0.792018 19.5833 0.95793C19.8333 1.12384 20 1.37271 20 1.70454V14.9775C20 15.3094 19.8333 15.5582 19.5833 15.7241L13.75 19.0424H13.6667H13.5833C13.5 19.1254 13.4167 19.1253 13.3333 19.1253C13.1667 19.1253 13.0833 19.1254 12.9167 19.0424L6.66667 15.8901L1.25 19.0424C1 19.2083 0.666667 19.2083 0.416667 19.0424C0.166667 18.8765 0 18.6276 0 18.2958V5.02279C0 4.69096 0.166667 4.44209 0.333333 4.27618L6.16667 0.95793H6.25H6.33333C6.5 0.874974 6.58333 0.874974 6.66667 0.874974C6.75 0.874974 6.83333 0.874974 6.91667 0.95793H7L13.3333 4.11027L18.75 0.95793ZM12.5 5.52052L7.5 3.03184V14.4798L12.5 16.9685V5.52052ZM1.66667 5.52052L5.83333 3.11479V14.4798L1.66667 16.8855V5.52052ZM14.1667 16.8855L18.3333 14.4798V3.11479L14.1667 5.52052V16.8855Z" fill="#35498E"></path>
-                          <mask id="mask0_300_3027" style="mask-type: alpha;" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.75 0.95793C19 0.792018 19.3333 0.792018 19.5833 0.95793C19.8333 1.12384 20 1.37271 20 1.70454V14.9775C20 15.3094 19.8333 15.5582 19.5833 15.7241L13.75 19.0424H13.6667H13.5833C13.5 19.1254 13.4167 19.1253 13.3333 19.1253C13.1667 19.1253 13.0833 19.1254 12.9167 19.0424L6.66667 15.8901L1.25 19.0424C1 19.2083 0.666667 19.2083 0.416667 19.0424C0.166667 18.8765 0 18.6276 0 18.2958V5.02279C0 4.69096 0.166667 4.44209 0.333333 4.27618L6.16667 0.95793H6.25H6.33333C6.5 0.874974 6.58333 0.874974 6.66667 0.874974C6.75 0.874974 6.83333 0.874974 6.91667 0.95793H7L13.3333 4.11027L18.75 0.95793ZM12.5 5.52052L7.5 3.03184V14.4798L12.5 16.9685V5.52052ZM1.66667 5.52052L5.83333 3.11479V14.4798L1.66667 16.8855V5.52052ZM14.1667 16.8855L18.3333 14.4798V3.11479L14.1667 5.52052V16.8855Z" fill="white"></path>
-                          </mask>
-                          <g mask="url(#mask0_300_3027)">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H20V20H0V0Z" fill="#35498E"></path>
-                          </g>
-                        </svg>
+                      <button class="bg-white text-blue button--trigger-location-map" type="button" @click="locationMap">
+                        <i class="fa-light fa-map me-2"></i>
                         Back to map locations
                       </button>
                     </div>
@@ -313,19 +297,19 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>City</label>
-                        <v-select :options="options" placeholder="Select a Street"></v-select>
+                        <v-select :options="options2" placeholder="Select a Street"></v-select>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>Region</label>
-                        <v-select :options="options" placeholder="Select a Street"></v-select>
+                        <v-select :options="options2" placeholder="Select a Street"></v-select>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>Street</label>
-                        <v-select :options="options" placeholder="Select a Street"></v-select>
+                        <v-select :options="options2" placeholder="Select a Street"></v-select>
                       </div>
                     </div>
                     <div class="col-12">
@@ -366,97 +350,106 @@
                     <h5 class="font-semi-bold">Delivery company</h5>
                   </div>
                 </div>
-                <div class="row mb-4">
+                <div class="row">
                   <div class="col-12">
-                    <div class="d-lg-flex align-items-center justify-content-between">
-                      <div class="d-sm-flex align-items-center">
-                        <h5 class="mb-1 mb-lg-0 text-gray me-3 col-auto">Sort By:</h5>
-                        <div class="button-group filters-button-group pr-4 pr-sm-0">
-                          <div class="button is-checked">All</div>
-                          <div class="button">Time</div>
-                          <div class="button">Rate</div>
-                          <div class="button">Price</div>
-                          <div class="button">Offers</div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-3 col-xxl-2 mt-2 mt-lg-0">
-                        <v-select :options="options" placeholder="Select a Street"></v-select>
-                      </div>
-                    </div>
+                    <h5 class="mb-2 text-gray">Sort By:</h5>
                   </div>
-                </div>
-                <div class="row grid" style="position: relative; height: 525.562px;">
-                  <div class="col-sm-6 col-lg-4 col-xxl-3 grid-item item-4" style="position: absolute; left: 0px; top: 0px;">
-                    <div class="widget__item-company border rounded-10 mb-4">
-                      <div class="widget__item-image border-bottom"><img src="@/assets/images/partners/tnt.png" alt=""></div>
-                      <div class="widget__item-content p-3">
-                        <h4 class="mb-2 text-blue">00min:00hr:00d</h4>
-                        <div class="data-rating d-flex align-items-center data-rating-lg mb-4">
-                          <span class="d-flex" data-rating="3"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
+                  <div class="col-lg-9">
+                    <b-tabs class="nav nav-pills mb-0 tab-custom flex-column border-0">
+                      <b-tab title="All" active>
+                        <div>
+                          <div class="row mt-3">
+                            <div class="col-sm-6 col-lg-4 col-xxl-4">
+                              <div class="widget__item-company border rounded-10 mb-4">
+                                <div class="widget__item-image border-bottom"><img src="@/assets/images/partners/tnt.png" alt=""></div>
+                                <div class="widget__item-content p-3">
+                                  <h4 class="mb-2 text-blue">00min:00hr:00d</h4>
+                                  <div class="data-rating d-flex align-items-center data-rating-lg mb-4">
+                                    <span class="d-flex" data-rating="3"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
+                                  </div>
+                                  <h6 class="text-gray">$ pick address to get price</h6>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 col-xxl-4">
+                              <div class="widget__item-company border rounded-10 mb-4">
+                                <div class="widget__item-image border-bottom"><img src="@/assets/images/partners/tnt.png" alt=""></div>
+                                <div class="widget__item-content p-3">
+                                  <h4 class="mb-2 text-blue">00min:00hr:00d</h4>
+                                  <div class="data-rating d-flex align-items-center data-rating-lg mb-4">
+                                    <span class="d-flex" data-rating="3"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
+                                  </div>
+                                  <h6 class="text-gray">$ pick address to get price</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <h6 class="text-gray">$ pick address to get price</h6>
-                      </div>
-                    </div>
+                      </b-tab>
+                      <b-tab title="Time">
+                        <div>
+                          <div class="row mt-3">
+                            <div class="col-sm-6 col-lg-4 col-xxl-4">
+                              <div class="widget__item-company border rounded-10 mb-4">
+                                <div class="widget__item-image border-bottom"><img src="@/assets/images/partners/tnt.png" alt=""></div>
+                                <div class="widget__item-content p-3">
+                                  <h4 class="mb-2 text-blue">00min:00hr:00d</h4>
+                                  <div class="data-rating d-flex align-items-center data-rating-lg mb-4">
+                                    <span class="d-flex" data-rating="3"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
+                                  </div>
+                                  <h6 class="text-gray">$ pick address to get price</h6>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 col-xxl-4">
+                              <div class="widget__item-company border rounded-10 mb-4">
+                                <div class="widget__item-image border-bottom"><img src="@/assets/images/partners/tnt.png" alt=""></div>
+                                <div class="widget__item-content p-3">
+                                  <h4 class="mb-2 text-blue">00min:00hr:00d</h4>
+                                  <div class="data-rating d-flex align-items-center data-rating-lg mb-4">
+                                    <span class="d-flex" data-rating="3"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
+                                  </div>
+                                  <h6 class="text-gray">$ pick address to get price</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </b-tab>
+                      <b-tab title="Rate">
+                        <div>
+                          <div class="row mt-3">
+                            <div class="col-sm-6 col-lg-4 col-xxl-4">
+                              <div class="widget__item-company border rounded-10 mb-4">
+                                <div class="widget__item-image border-bottom"><img src="@/assets/images/partners/tnt.png" alt=""></div>
+                                <div class="widget__item-content p-3">
+                                  <h4 class="mb-2 text-blue">00min:00hr:00d</h4>
+                                  <div class="data-rating d-flex align-items-center data-rating-lg mb-4">
+                                    <span class="d-flex" data-rating="3"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
+                                  </div>
+                                  <h6 class="text-gray">$ pick address to get price</h6>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 col-xxl-4">
+                              <div class="widget__item-company border rounded-10 mb-4">
+                                <div class="widget__item-image border-bottom"><img src="@/assets/images/partners/tnt.png" alt=""></div>
+                                <div class="widget__item-content p-3">
+                                  <h4 class="mb-2 text-blue">00min:00hr:00d</h4>
+                                  <div class="data-rating d-flex align-items-center data-rating-lg mb-4">
+                                    <span class="d-flex" data-rating="3"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
+                                  </div>
+                                  <h6 class="text-gray">$ pick address to get price</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </b-tab>
+                    </b-tabs>
                   </div>
-                  <div class="col-sm-6 col-lg-4 col-xxl-3 grid-item item-1" style="position: absolute; left: 299.984px; top: 0px;">
-                    <div class="widget__item-company border rounded-10 mb-4">
-                      <div class="widget__item-image border-bottom"><img src="@/assets/images/partners/tnt.png" alt=""></div>
-                      <div class="widget__item-content p-3">
-                        <h4 class="mb-2 text-blue">00min:00hr:00d</h4>
-                        <div class="data-rating d-flex align-items-center data-rating-lg mb-4">
-                          <span class="d-flex" data-rating="3"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
-                        </div>
-                        <h6 class="text-gray">$ pick address to get price</h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-lg-4 col-xxl-3 grid-item item-3" style="position: absolute; left: 599.968px; top: 0px;">
-                    <div class="widget__item-company border rounded-10 mb-4">
-                      <div class="widget__item-image border-bottom"><img src="@/assets/images/partners/tnt.png" alt=""></div>
-                      <div class="widget__item-content p-3">
-                        <h4 class="mb-2 text-blue">00min:00hr:00d</h4>
-                        <div class="data-rating d-flex align-items-center data-rating-lg mb-4">
-                          <span class="d-flex" data-rating="3"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
-                        </div>
-                        <h6 class="text-gray">$ pick address to get price</h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-lg-4 col-xxl-3 grid-item item-2" style="position: absolute; left: 0px; top: 262.781px;">
-                    <div class="widget__item-company border rounded-10 mb-4">
-                      <div class="widget__item-image border-bottom"><img src="@/assets/images/partners/tnt.png" alt=""></div>
-                      <div class="widget__item-content p-3">
-                        <h4 class="mb-2 text-blue">00min:00hr:00d</h4>
-                        <div class="data-rating d-flex align-items-center data-rating-lg mb-4">
-                          <span class="d-flex" data-rating="3"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
-                        </div>
-                        <h6 class="text-gray">$ pick address to get price</h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-lg-4 col-xxl-3 grid-item item-4" style="position: absolute; left: 299.984px; top: 262.781px;">
-                    <div class="widget__item-company border rounded-10 mb-4">
-                      <div class="widget__item-image border-bottom"><img src="@/assets/images/partners/tnt.png" alt=""></div>
-                      <div class="widget__item-content p-3">
-                        <h4 class="mb-2 text-blue">00min:00hr:00d</h4>
-                        <div class="data-rating d-flex align-items-center data-rating-lg mb-4">
-                          <span class="d-flex" data-rating="3"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
-                        </div>
-                        <h6 class="text-gray">$ pick address to get price</h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-lg-4 col-xxl-3 grid-item item-1" style="position: absolute; left: 599.968px; top: 262.781px;">
-                    <div class="widget__item-company border rounded-10 mb-4">
-                      <div class="widget__item-image border-bottom"><img src="@/assets/images/partners/tnt.png" alt=""></div>
-                      <div class="widget__item-content p-3">
-                        <h4 class="mb-2 text-blue">00min:00hr:00d</h4>
-                        <div class="data-rating d-flex align-items-center data-rating-lg mb-4">
-                          <span class="d-flex" data-rating="3"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
-                        </div>
-                        <h6 class="text-gray">$ pick address to get price</h6>
-                      </div>
-                    </div>
+                  <div class="col-lg-3">
+                    <v-select :options="options2" placeholder="Select a Street"></v-select>
                   </div>
                 </div>
               </div>
@@ -569,10 +562,10 @@
                   <div class="col-lg-8">
                     <div class="border rounded-5 d-none d-lg-block accordion-paymend" id="accordion">
                       <div class="widget__item-accordion">
-                        <div class="widget__item-head" v-b-toggle.accordion-1>
+                        <div class="widget__item-head" >
                           <label class="m-radio mb-0 d-block">
                             <input type="radio" name="radio"><span class="checkmark"></span>
-                            <div class="widget__item-title font-medium">Cridet card</div>
+                            <div class="widget__item-title font-medium" v-b-toggle.accordion-1>Cridet card</div>
                           </label>
                         </div>
                          <b-collapse id="accordion-1" visible accordion="my-accordion" >
@@ -607,10 +600,10 @@
                         </b-collapse>
                       </div>
                       <div class="widget__item-accordion">
-                        <div class="widget__item-head" v-b-toggle.accordion-2>
+                        <div class="widget__item-head" >
                           <label class="m-radio mb-0 d-block">
                             <input type="radio" name="radio"><span class="checkmark"></span>
-                            <div class="widget__item-title font-medium">PayPall</div>
+                            <div class="widget__item-title font-medium" v-b-toggle.accordion-2>PayPall</div>
                           </label>
                         </div>
                         <b-collapse id="accordion-2" accordion="my-accordion" >
@@ -619,10 +612,10 @@
                         </b-collapse>
                       </div>
                       <div class="widget__item-accordion">
-                        <div class="widget__item-head" v-b-toggle.accordion-3>
+                        <div class="widget__item-head" >
                           <label class="m-radio mb-0 d-block">
                             <input type="radio" name="radio"><span class="checkmark"></span>
-                            <div class="widget__item-title font-medium">Cash On Delivery</div>
+                            <div class="widget__item-title font-medium" v-b-toggle.accordion-3>Cash On Delivery</div>
                           </label>
                         </div>
                         <b-collapse id="accordion-3" accordion="my-accordion" >
@@ -679,8 +672,24 @@ export default {
         maxFilesize: 0.5,
         dictDefaultMessage: "<i class='icon mt-3 fa-thin fa-image fa-xl'></i> <span class='title'>Upload Parcel Image.</span> <span class='text'>max. 3 images can be uploaded</span> "
       },
+      showLocationManually: true,
+      showLocationMap: false,
       center: { lat: 45.508, lng: -73.587 },
       options: [
+        {
+          title: '+972',
+          flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Palestine_Flag.svg/512px-Palestine_Flag.svg.png'
+        },
+        {
+          title: '+973',
+          flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Palestine_Flag.svg/512px-Palestine_Flag.svg.png'
+        },
+        {
+          title: '+971',
+          flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Palestine_Flag.svg/512px-Palestine_Flag.svg.png'
+        }
+      ],
+      options2: [
         'foo',
         'bar',
         'baz'
@@ -780,6 +789,14 @@ export default {
           lng: position.coords.longitude
         }
       })
+    },
+    locationManually () {
+      this.showLocationManually = !this.showLocationManually
+      this.showLocationMap = !this.showLocationMap
+    },
+    locationMap () {
+      this.showLocationMap = !this.showLocationMap
+      this.showLocationManually = !this.showLocationManually
     }
   },
   computed: {
