@@ -15,14 +15,14 @@
                 <i class="fa-solid fa-xmark fa-xl"></i>
               </div>
             </div>
-            <div class="menu-container mx-auto menu-nav">
+            <div class="menu-container mx-auto menu-nav" @click="toogleMenu">
               <ul class="main-menu">
                 <li class="menu_item"><router-link to="/" class="menu_link">Home</router-link></li>
                 <li class="menu_item"><router-link to="/parcel-details" class="menu_link">New Parcel</router-link></li>
                 <li class="menu_item"><router-link to="/tracking" class="menu_link">Tracking</router-link></li>
               </ul>
             </div>
-            <div class="menu-container col-auto">
+            <div class="menu-container col-auto" @click="toogleMenu">
               <ul class="main-menu d-lg-flex align-items-lg-center">
                 <li class="menu_item dropdown dropdown-lang">
                   <b-dropdown right variant="link p-0" toggle-class="text-decoration-none" no-caret>
@@ -50,7 +50,7 @@
       </div>
     </header>
     <b-modal content-class="border rounded-20 overflow-hidden" body-class="p-0" id="bv-modal-login" centered hide-header hide-footer>
-      <div class="modal-inner py-4">
+      <div class="modal-inner py-4 px-4 px-lg-0">
         <div class="row">
           <div class="col-lg-10 mx-auto">
             <h3 class="mb-2 font-medium modal-title">Welcome to Parcelya</h3>
@@ -100,7 +100,7 @@
       </div>
     </b-modal>
     <b-modal content-class="border rounded-20 overflow-hidden" body-class="p-0" id="bv-modal-register" centered hide-header hide-footer>
-      <div class="modal-inner py-4">
+      <div class="modal-inner py-4 px-4 px-lg-0">
         <div class="row">
           <div class="col-lg-10 mx-auto">
             <h3 class="mb-2 font-medium modal-title">Create new account</h3>
