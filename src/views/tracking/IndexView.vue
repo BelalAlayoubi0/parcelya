@@ -99,12 +99,12 @@ export default {
   },
   methods: {
     showFilter () {
-      this.isActiveSearch = false
-      this.isActiveFilter = !this.isActiveFilter
-    },
-    showSearch () {
       this.isActiveFilter = false
       this.isActiveSearch = !this.isActiveSearch
+    },
+    showSearch () {
+      this.isActiveSearch = false
+      this.isActiveFilter = !this.isActiveFilter
     }
   }
 }

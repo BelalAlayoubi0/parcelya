@@ -6,7 +6,7 @@
           <div class="home-content">
             <h1 class="home-title mb-4 mb-lg-5 font-bold text-blue">Save time, Control Parcels' hand-off and Delivery time</h1>
             <div class="home-action">
-              <router-link to="/" class="btn btn-primary">Send new Parcel</router-link>
+              <router-link to="/parcel-details" class="btn btn-primary">Send new Parcel</router-link>
             </div>
           </div>
         </div>

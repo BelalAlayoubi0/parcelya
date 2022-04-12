@@ -5,7 +5,7 @@
       <ul class="tab-parcel d-flex">
         <li><router-link to="/" class="active text-gray font-semi-bold"> New Parcel</router-link></li>
         <li>
-          <router-link to="/index-login-special-driver" class="text-gray font-semi-bold"> Special driver<span class="soon ms-2">Soon</span></router-link>
+          <router-link to="/special-driver" class="text-gray font-semi-bold"> Special driver<span class="soon ms-2">Soon</span></router-link>
         </li>
       </ul>
       <div class="bg-white">
@@ -32,8 +32,11 @@
                 </swiper>
               </div>
               <div class="col-lg-6 mx-auto d-none d-lg-block">
-                <b-tabs class="nav nav-pills mb-4 tab-custom flex-column border-0">
-                  <b-tab title="Standard" active class="mt-4">
+                <b-tabs class="nav nav-pills mb-4 tab-custom flex-column border-0" v-model="tabIndex">
+                  <b-tab active class="mt-4">
+                    <template #title>
+                      <div v-b-toggle="'collapse-1'" class="title">Standard</div>
+                    </template>
                     <div>
                       <form action="">
                         <div class="form-group">
@@ -44,16 +47,48 @@
                           </div>
                         </div>
                         <div class="form-group text-end mt-4">
-                          <button class="btn btn-primary font-semi-bold">Continue</button>
+                          <router-link class="btn btn-primary font-semi-bold" to="/parcel-details">Continue</router-link>
                         </div>
                       </form>
                     </div>
                   </b-tab>
-                  <b-tab title="Same day">
-                    <div></div>
+                  <b-tab class="mt-4">
+                    <template #title>
+                      <div v-b-toggle="'collapse-2'" class="title">Same day</div>
+                    </template>
+                    <div>
+                      <form action="">
+                        <div class="form-group">
+                          <label class="font-medium mb-1">Parcel weight</label>
+                          <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                            <span class="input-group-text bg-white text-gray border" id="basic-addon2">Kg</span>
+                          </div>
+                        </div>
+                        <div class="form-group text-end mt-4">
+                          <router-link class="btn btn-primary font-semi-bold" to="/parcel-details">Continue</router-link>
+                        </div>
+                      </form>
+                    </div>
                   </b-tab>
-                  <b-tab title="Scheduled">
-                    <div></div>
+                  <b-tab class="mt-4">
+                    <template #title>
+                      <div v-b-toggle="'collapse-3'" class="title">Scheduled</div>
+                    </template>
+                    <div>
+                      <form action="">
+                        <div class="form-group">
+                          <label class="font-medium mb-1">Parcel weight</label>
+                          <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                            <span class="input-group-text bg-white text-gray border" id="basic-addon2">Kg</span>
+                          </div>
+                        </div>
+                        <div class="form-group text-end mt-4">
+                          <router-link class="btn btn-primary font-semi-bold" to="/parcel-details">Continue</router-link>
+                        </div>
+                      </form>
+                    </div>
                   </b-tab>
                 </b-tabs>
               </div>
@@ -75,7 +110,7 @@
                     </div>
                   </div>
                   <div class="form-group text-end mt-4">
-                    <button class="btn btn-primary font-semi-bold w-100">Continue</button>
+                    <router-link class="btn btn-primary font-semi-bold" to="/parcel-details">Continue</router-link>
                   </div>
                 </form>
               </div>
@@ -84,7 +119,7 @@
           <div class="col-lg-4 border-start py-4 pe-4">
             <div class="border rounded-5 d-none d-lg-block">
               <div class="widget__item-accordion">
-                <div class="widget__item-head" v-b-toggle.collapse-1>
+                <div class="widget__item-head" v-b-toggle.collapse-1 @click="tabIndex=0">
                   <h5 class="widget__item-title font-medium">Standard Delivery</h5>
                 </div>
                 <b-collapse id="collapse-1" visible accordion="my-accordion">
@@ -96,7 +131,7 @@
                 </b-collapse>
               </div>
               <div class="widget__item-accordion">
-                <div class="widget__item-head collapsed" v-b-toggle.collapse-2>
+                <div class="widget__item-head collapsed" v-b-toggle.collapse-2  @click="tabIndex=1">
                   <h5 class="widget__item-title font-medium">Same day Delivery</h5>
                 </div>
                 <b-collapse id="collapse-2" accordion="my-accordion">
@@ -108,7 +143,7 @@
                 </b-collapse>
               </div>
               <div class="widget__item-accordion">
-                <div class="widget__item-head collapsed" v-b-toggle.collapse-3>
+                <div class="widget__item-head collapsed" v-b-toggle.collapse-3 @click="tabIndex=2">
                   <h5 class="widget__item-title font-medium">Scheduled Delivery</h5>
                 </div>
                 <b-collapse id="collapse-3" accordion="my-accordion">
@@ -132,6 +167,8 @@
 export default {
   data () {
     return {
+      tabIndex: 0,
+      tabIndex2: 0,
       items: [
         {
           img: require('@/assets/images/file.png'),

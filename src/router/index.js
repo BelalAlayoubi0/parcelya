@@ -14,6 +14,18 @@ const routes = [
     component: () => import('../views/home/IndexView.vue')
   },
   {
+    path: '/special-driver',
+    name: 'special-driver',
+    meta: { title: 'special-driver' },
+    component: () => import('../views/special-driver/IndexView.vue')
+  },
+  {
+    path: '/overview',
+    name: 'overview',
+    meta: { title: 'overview' },
+    component: () => import('../views/overview/IndexView.vue')
+  },
+  {
     path: '*',
     name: 'notFoundPage',
     meta: { title: 'notFoundPage' },

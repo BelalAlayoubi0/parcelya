@@ -9,6 +9,7 @@
   display: inline-flex;
   background-color: #FFF !important;
   padding: 0px 10px;
+  color: rgba(0, 0, 0, 0.7);
 }
 .vue-form-wizard .wizard-icon-circle .wizard-icon-container{
   border-radius: 50%;
@@ -76,8 +77,12 @@
 
 .vue-form-wizard.md .wizard-icon-circle.checked .wizard-icon-container,
 .vue-form-wizard.md .wizard-icon-circle.checked {
+  background-color: #FECB33 !important;
+}
+.vue-form-wizard .wizard-nav-pills li:not(.active) .wizard-icon-circle.checked {
   background-color: #28A745 !important;
 }
+
 
 .stepTitle.active{
   color: #000 !important;
@@ -90,6 +95,24 @@ html[dir="rtl"] .stepTitle {
 
 html[dir="ltr"] .stepTitle {
   margin-left: 10px;
+}
+
+@media(max-width:991px){
+  .stepTitle{
+    margin: 0 !important;
+    font-size: 12px;
+  }
+  .vue-form-wizard .wizard-icon-circle ,
+  .vue-form-wizard .wizard-icon-container {
+    width: 35px;
+    height: 35px;
+    font-size: 16px !important;
+    margin: 0px auto 10px;
+  }
+  .vue-form-wizard.md .wizard-nav-pills>li.active>a .wizard-icon{
+    font-size: 16px !important;
+    padding-top: 5px;
+  }
 }
 
 .vue-form-wizard.md .wizard-icon-circle {
@@ -199,6 +222,12 @@ html[dir="rtl"] .vs__dropdown-toggle {
 } */
 .tab-custom .nav-tabs {
   border-bottom: 0
+}
+@media(max-width:576px){
+  .container {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
 }
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap");
@@ -2532,6 +2561,12 @@ html[dir="rtl"] .m-checkbox .checkmark {
   right: 0px;
 }
 
+@media(max-width:991px){
+  html[dir="rtl"] .m-checkbox {
+    padding-right: 20px;
+  }
+}
+
 html[dir="rtl"] .m-radio {
   padding-right: 30px;
 }
@@ -2547,7 +2582,11 @@ html[dir="ltr"] .m-checkbox {
 html[dir="ltr"] .m-checkbox .checkmark {
   left: 0px;
 }
-
+@media(max-width:991px) {
+  html[dir="ltr"] .m-checkbox {
+    padding-left: 20px;
+  }
+}
 html[dir="ltr"] .m-radio {
   padding-left: 30px;
 }
@@ -2733,15 +2772,15 @@ html[dir="ltr"] .m-radio .checkmark {
 
 @media (max-width: 991px) {
   .section-home .home-title {
-    font-size: 20px;
+    font-size: 30px;
   }
 }
 
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
   .section-home .home-image img {
-    width: 250px;
+    width: 320px;
   }
-}
+} */
 
 @media (max-width: 991px) {
   .section-home {
@@ -2776,21 +2815,26 @@ html[dir="ltr"] .m-radio .checkmark {
     margin-top: -70px;
   }
 }
-
-.nav-pills.tab-custom .nav-item .nav-link {
+.nav-pills.tab-custom .nav-item .nav-link{
+  padding: 0;
+  background-color: transparent !important;
+}
+.nav-pills.tab-custom .nav-item .nav-link .title{
   border: 1px solid #707070;
   border-radius: 8px;
   color: #0A0E1C;
   margin-bottom: 3px;
+  padding: 0.5rem 1rem;
 }
 
 @media (max-width: 991px) {
-  .nav-pills.tab-custom .nav-item .nav-link {
+  .nav-pills.tab-custom .nav-item .nav-link .title {
     font-size: 12px;
   }
 }
 
-.nav-pills.tab-custom .nav-item .nav-link.active, .nav-pills.tab-custom .nav-item .nav-link:hover {
+.nav-pills.tab-custom .nav-item .nav-link.active .title,
+.nav-pills.tab-custom .nav-item .nav-link:hover .title {
   background-color: #35498E;
   color: #fff;
 }

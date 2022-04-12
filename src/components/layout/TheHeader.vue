@@ -83,7 +83,7 @@
                   <div class="col-lg-4">
                     <button class="btn btn-linkedIn w-100"><i class="fab fa-linkedin-in me-2"></i>LinkedIn</button>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-4 my-2 my-lg-0">
                     <button class="btn btn-google w-100"><i class="fab fa-google me-2"> </i>Google</button>
                   </div>
                   <div class="col-lg-4">
@@ -155,7 +155,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <h6 class="text-gray">Agree to Term of use and Privacy policy</h6>
+                <label class="m-checkbox"> <input type="checkbox" name="checkbox"><span class="checkmark"></span> Agree to Term of use and Privacy policy</label>
               </div>
               <div class="form-group">
                 <!-- <button class="btn btn-primary w-100">Create account</button> -->

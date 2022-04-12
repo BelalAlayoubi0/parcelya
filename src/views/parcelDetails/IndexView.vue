@@ -1,10 +1,10 @@
 <template>
   <section class="section-content">
-    <div class="container">
+    <div class="container px-0 px-lg-4">
       <div class="row">
         <div class="col-lg-10 col-xxl-9 mx-auto">
           <form-wizard @hook:mounted="onfunction">
-            <tab-content title="Parcel details">
+            <tab-content title="Parcel details" :on-change="onComplete">
               <div class="border rounded-10 p-4">
                 <div class="row mb-4">
                   <div class="col-12">
@@ -779,6 +779,9 @@ export default {
     }
   },
   methods: {
+    onComplete () {
+      alert('Yay. Done!')
+    },
     onfunction () {
       this.key = Math.random()
     },
